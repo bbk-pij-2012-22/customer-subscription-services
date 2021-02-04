@@ -15,7 +15,7 @@ class MatchSummaryStringUtilTest {
                 new Player("John McEnroe"), new Player("Andre Agassi"));
         String summaryType = "AvB";
         String expected = "John McEnroe vs Andre Agassi";
-        String result = MatchSummaryStringUtil.buildMatchSummary(match, summaryType);
-        assertEquals(expected, result);
+        String actual = MatchSummaryStringUtil.buildMatchSummary(match, summaryType);
+        assertEquals(expected, actual);
     }
 }
