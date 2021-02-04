@@ -27,7 +27,7 @@ public class UserLicenceResource {
 
     @GetMapping(path = "/{userId}/matches", produces = MediaType.APPLICATION_JSON_VALUE)
     public List<UserMatchLicenceWrapper> getUserMatchLicences(@PathVariable("userId") Long userId,
-                                                              @RequestParam String summaryType) {
+                                                              @RequestParam(required = false) String summaryType) {
         List<Match> licencedMatches = userLicenceService.getLicencedMatches(userId);
 
         return buildResponse(licencedMatches, summaryType);
@@ -40,7 +40,7 @@ public class UserLicenceResource {
             UserMatchLicenceWrapper userLicenceWrapper = new UserMatchLicenceWrapper(match);
 
             if (summaryType != null) {
-               userLicenceWrapper.setSummary(MatchSummaryStringUtil.buildMatchSummary(match));
+               userLicenceWrapper.setSummary(MatchSummaryStringUtil.buildMatchSummary(match, summaryType));
             }
 
             response.add(userLicenceWrapper);
