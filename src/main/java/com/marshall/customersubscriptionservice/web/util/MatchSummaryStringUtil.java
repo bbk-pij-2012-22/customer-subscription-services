@@ -4,7 +4,7 @@ import com.marshall.customersubscriptionservice.model.event.Match;
 
 public class MatchSummaryStringUtil {
 
-    public static String buildMatchSummary(Match match) {
+    public static String buildMatchSummary(Match match, String summaryType) {
 
 
         return "";
