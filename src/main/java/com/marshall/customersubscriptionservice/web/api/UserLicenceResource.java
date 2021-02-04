@@ -2,7 +2,7 @@ package com.marshall.customersubscriptionservice.web.api;
 
 import com.marshall.customersubscriptionservice.model.event.Match;
 import com.marshall.customersubscriptionservice.service.IUserLicenceService;
-import com.marshall.customersubscriptionservice.web.MatchSummaryStringUtil;
+import com.marshall.customersubscriptionservice.web.util.MatchSummaryStringUtil;
 import com.marshall.customersubscriptionservice.web.model.UserMatchLicenceWrapper;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.GetMapping;
