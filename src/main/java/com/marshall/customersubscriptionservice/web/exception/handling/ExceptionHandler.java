@@ -16,4 +16,10 @@ public class ExceptionHandler extends ResponseEntityExceptionHandler {
         String responseBody = e.getMessage();
         return handleExceptionInternal(e, responseBody, new HttpHeaders(), HttpStatus.NOT_FOUND, request);
     }
+
+    @org.springframework.web.bind.annotation.ExceptionHandler(value = IllegalArgumentException.class)
+    protected ResponseEntity<Object> handleException(IllegalArgumentException e, WebRequest request) {
+        String responseBody = e.getMessage();
+        return handleExceptionInternal(e, responseBody, new HttpHeaders(), HttpStatus.BAD_REQUEST, request);
+    }
 }
