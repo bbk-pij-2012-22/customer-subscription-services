@@ -1,10 +1,18 @@
 package com.marshall.customersubscriptionservice.model.user;
 
-public class User {
-    private Long userId;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
-    public User(Long userId) {
-        this.userId = userId;
+@Entity
+@Table(name = "user")
+public class User {
+
+    @Id
+    private Long userId;
+    private String username;
+
+    public User() {
     }
 
     public Long getUserId() {
@@ -13,5 +21,13 @@ public class User {
 
     public void setUserId(Long userId) {
         this.userId = userId;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
     }
 }
