@@ -4,6 +4,7 @@ import com.marshall.customersubscriptionservice.model.event.Match;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
@@ -16,7 +17,7 @@ public class UserMatchLicence {
     private Long userMatchLicenceId;
     private Long userId;
     @OneToOne
-    @PrimaryKeyJoinColumn(name = "match_id")
+    @JoinColumn(name = "match_id")
     private Match match;
 
     public UserMatchLicence() {
