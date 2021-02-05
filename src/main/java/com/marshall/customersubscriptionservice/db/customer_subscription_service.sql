@@ -23,9 +23,9 @@ CREATE TABLE `match_event`(
     player_a_id BIGINT(20) UNSIGNED NOT NULL,
     player_b_id BIGINT(20) UNSIGNED NOT NULL,
     PRIMARY KEY (`match_id`),
-    CONSTRAINT `MFK1` FOREIGN KEY (`tournament_id`) REFERENCES `tournament` (`tournament_id`),
-    CONSTRAINT `MKFK2` FOREIGN KEY (`player_a_id`) REFERENCES `player` (`player_id`),
-    CONSTRAINT `MKFK3` FOREIGN KEY (`player_b_id`) REFERENCES `player` (`player_id`)
+    CONSTRAINT `MEK1` FOREIGN KEY (`tournament_id`) REFERENCES `tournament` (`tournament_id`),
+    CONSTRAINT `MEFK2` FOREIGN KEY (`player_a_id`) REFERENCES `player` (`player_id`),
+    CONSTRAINT `MEFK3` FOREIGN KEY (`player_b_id`) REFERENCES `player` (`player_id`)
 ) ENGINE = InnoDB;
 
 DROP TABLE IF EXISTS `user`;
