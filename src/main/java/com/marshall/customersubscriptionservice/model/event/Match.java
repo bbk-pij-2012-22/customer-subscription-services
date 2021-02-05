@@ -1,21 +1,30 @@
 package com.marshall.customersubscriptionservice.model.event;
 
-import org.joda.time.DateTime;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.OneToOne;
+import javax.persistence.PrimaryKeyJoinColumn;
+import javax.persistence.Table;
+import java.util.Date;
 
+@Entity
+@Table(name = "match_event")
 public class Match {
 
+    @Id
+    @Column(name = "match_id")
     private Long matchId;
     private Long tournamentId;
-    private DateTime startDate;
+    private Date startDate;
+    @OneToOne
+    @PrimaryKeyJoinColumn(name = "player_a_id")
     private Player playerA;
+    @OneToOne
+    @PrimaryKeyJoinColumn(name = "player_b_id")
     private Player playerB;
 
-    public Match(Long matchId, Long tournamentId, DateTime startDate, Player playerA, Player playerB) {
-        this.matchId = matchId;
-        this.tournamentId = tournamentId;
-        this.startDate = startDate;
-        this.playerA = playerA;
-        this.playerB = playerB;
+    public Match() {
     }
 
     public Long getMatchId() {
@@ -34,11 +43,11 @@ public class Match {
         this.tournamentId = tournamentId;
     }
 
-    public DateTime getStartDate() {
+    public Date getStartDate() {
         return startDate;
     }
 
-    public void setStartDate(DateTime startDate) {
+    public void setStartDate(Date startDate) {
         this.startDate = startDate;
     }
 
@@ -46,15 +55,7 @@ public class Match {
         return playerA;
     }
 
-    public void setPlayerA(Player playerA) {
-        this.playerA = playerA;
-    }
-
     public Player getPlayerB() {
         return playerB;
-    }
-
-    public void setPlayerB(Player playerB) {
-        this.playerB = playerB;
     }
 }
