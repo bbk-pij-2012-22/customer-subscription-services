@@ -1,6 +1,6 @@
 package com.marshall.customersubscriptionservice.web.api;
 
-import com.marshall.customersubscriptionservice.model.event.Match;
+import com.marshall.customersubscriptionservice.model.user.UserMatchLicence;
 import com.marshall.customersubscriptionservice.service.IUserLicenceService;
 import com.marshall.customersubscriptionservice.web.util.MatchSummaryStringUtil;
 import com.marshall.customersubscriptionservice.web.model.UserMatchLicenceWrapper;
@@ -28,19 +28,19 @@ public class UserLicenceResource {
     @GetMapping(path = "/{userId}/matches", produces = MediaType.APPLICATION_JSON_VALUE)
     public List<UserMatchLicenceWrapper> getUserMatchLicences(@PathVariable("userId") Long userId,
                                                               @RequestParam(required = false) String summaryType) {
-        List<Match> licencedMatches = userLicenceService.getLicencedMatches(userId);
+        List<UserMatchLicence> licencedMatches = userLicenceService.getLicencedMatches(userId);
 
         return buildResponse(licencedMatches, summaryType);
     }
 
-    private List<UserMatchLicenceWrapper> buildResponse(List<Match> licencedMatches, String summaryType) {
+    private List<UserMatchLicenceWrapper> buildResponse(List<UserMatchLicence> licencedMatches, String summaryType) {
 
         List<UserMatchLicenceWrapper> response = new ArrayList<>();
-        for (Match match : licencedMatches) {
-            UserMatchLicenceWrapper userLicenceWrapper = new UserMatchLicenceWrapper(match);
+        for (UserMatchLicence userMatchLicence : licencedMatches) {
+            UserMatchLicenceWrapper userLicenceWrapper = new UserMatchLicenceWrapper(userMatchLicence);
 
             if (summaryType != null) {
-               userLicenceWrapper.setSummary(MatchSummaryStringUtil.buildMatchSummary(match, summaryType));
+               userLicenceWrapper.setSummary(MatchSummaryStringUtil.buildMatchSummary(userMatchLicence, summaryType));
             }
 
             response.add(userLicenceWrapper);
