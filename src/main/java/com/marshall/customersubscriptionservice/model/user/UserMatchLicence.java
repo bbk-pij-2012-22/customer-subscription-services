@@ -22,6 +22,12 @@ public class UserMatchLicence {
     public UserMatchLicence() {
     }
 
+    public UserMatchLicence(Long userMatchLicenceId, Long userId, Match match) {
+        this.userMatchLicenceId = userMatchLicenceId;
+        this.userId = userId;
+        this.match = match;
+    }
+
     public Long getUserMatchLicenceId() {
         return userMatchLicenceId;
     }
