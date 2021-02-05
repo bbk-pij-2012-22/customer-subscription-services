@@ -1,11 +1,11 @@
 package com.marshall.customersubscriptionservice.web.util;
 
-import com.marshall.customersubscriptionservice.model.event.Match;
+import com.marshall.customersubscriptionservice.model.user.UserMatchLicence;
 import com.marshall.customersubscriptionservice.web.constants.WebConstants;
 
 public class MatchSummaryStringUtil {
 
-    public static String buildMatchSummary(Match match, String summaryType) {
+    public static String buildMatchSummary(UserMatchLicence userMatchLicence, String summaryType) {
         String matchSummary = null;
 
         switch (summaryType) {
