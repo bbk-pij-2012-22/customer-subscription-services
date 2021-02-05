@@ -1,12 +1,33 @@
 package com.marshall.customersubscriptionservice.model.user;
 
-public class UserMatchLicence {
-    private Long userId;
-    private Long matchId;
+import com.marshall.customersubscriptionservice.model.event.Match;
 
-    public UserMatchLicence(Long userId, Long matchId) {
-        this.userId = userId;
-        this.matchId = matchId;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.OneToOne;
+import javax.persistence.PrimaryKeyJoinColumn;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "user_match_licence")
+public class UserMatchLicence {
+
+    @Id
+    private Long userMatchLicenceId;
+    private Long userId;
+    @OneToOne
+    @PrimaryKeyJoinColumn(name = "match_id")
+    private Match match;
+
+    public UserMatchLicence() {
+    }
+
+    public Long getUserMatchLicenceId() {
+        return userMatchLicenceId;
+    }
+
+    public void setUserMatchLicenceId(Long userMatchLicenceId) {
+        this.userMatchLicenceId = userMatchLicenceId;
     }
 
     public Long getUserId() {
@@ -17,11 +38,11 @@ public class UserMatchLicence {
         this.userId = userId;
     }
 
-    public Long getMatchId() {
-        return matchId;
+    public Match getMatch() {
+        return match;
     }
 
-    public void setMatchId(Long matchId) {
-        this.matchId = matchId;
+    public void setMatch(Match match) {
+        this.match = match;
     }
 }
