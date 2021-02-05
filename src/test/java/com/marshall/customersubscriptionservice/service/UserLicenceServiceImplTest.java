@@ -11,12 +11,12 @@ import java.util.List;
 
 class UserLicenceServiceImplTest extends IntegrationTest {
 
-    @Autowired
-    private IUserLicenceService userLicenceService;
+    private final IUserLicenceService userLicenceService;
 
-/*    public UserLicenceServiceImplTest(IUserLicenceService userLicenceService) {
+    @Autowired
+    public UserLicenceServiceImplTest(IUserLicenceService userLicenceService) {
         this.userLicenceService = userLicenceService;
-    }*/
+    }
 
     @Test
     @Rollback
