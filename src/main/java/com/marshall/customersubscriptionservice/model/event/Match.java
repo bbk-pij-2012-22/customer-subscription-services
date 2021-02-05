@@ -27,6 +27,14 @@ public class Match {
     public Match() {
     }
 
+    public Match(Long matchId, Long tournamentId, Date startDate, Player playerA, Player playerB) {
+        this.matchId = matchId;
+        this.tournamentId = tournamentId;
+        this.startDate = startDate;
+        this.playerA = playerA;
+        this.playerB = playerB;
+    }
+
     public Long getMatchId() {
         return matchId;
     }
