@@ -1,5 +1,6 @@
 package com.marshall.customersubscriptionservice.web.api;
 
+import com.marshall.customersubscriptionservice.exception.UserNotExistsException;
 import com.marshall.customersubscriptionservice.model.user.UserMatchLicence;
 import com.marshall.customersubscriptionservice.service.IUserLicenceService;
 import com.marshall.customersubscriptionservice.web.util.MatchSummaryStringUtil;
@@ -27,10 +28,9 @@ public class UserLicenceResource {
 
     @GetMapping(path = "/{userId}/matches", produces = MediaType.APPLICATION_JSON_VALUE)
     public List<UserMatchLicenceWrapper> getUserMatchLicences(@PathVariable("userId") Long userId,
-                                                              @RequestParam(required = false) String summaryType) {
-        List<UserMatchLicence> licencedMatches = userLicenceService.getLicencedMatches(userId);
-
-        return buildResponse(licencedMatches, summaryType);
+                                                              @RequestParam(required = false) String summaryType) throws UserNotExistsException {
+            List<UserMatchLicence> licencedMatches = userLicenceService.getLicencedMatches(userId);
+            return buildResponse(licencedMatches, summaryType);
     }
 
     private List<UserMatchLicenceWrapper> buildResponse(List<UserMatchLicence> licencedMatches, String summaryType) {
