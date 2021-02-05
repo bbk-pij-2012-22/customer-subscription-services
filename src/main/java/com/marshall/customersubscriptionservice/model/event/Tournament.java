@@ -1,14 +1,23 @@
 package com.marshall.customersubscriptionservice.model.event;
 
-import org.joda.time.DateTime;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import java.util.Date;
 
+@Entity
+@Table(name = "tournament")
 public class Tournament {
 
+    @Id
     private Long tournamentId;
     private String tournamentName;
-    private DateTime startDate;
+    private Date startDate;
 
-    public Tournament(Long tournamentId, String tournamentName, DateTime startDate) {
+    public Tournament() {
+    }
+
+    public Tournament(Long tournamentId, String tournamentName, Date startDate) {
         this.tournamentId = tournamentId;
         this.tournamentName = tournamentName;
         this.startDate = startDate;
@@ -30,11 +39,11 @@ public class Tournament {
         this.tournamentName = tournamentName;
     }
 
-    public DateTime getStartDate() {
+    public Date getStartDate() {
         return startDate;
     }
 
-    public void setStartDate(DateTime startDate) {
+    public void setStartDate(Date startDate) {
         this.startDate = startDate;
     }
 }
