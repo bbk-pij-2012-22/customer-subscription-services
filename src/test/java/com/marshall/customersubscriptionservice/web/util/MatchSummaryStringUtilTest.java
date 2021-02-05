@@ -1,15 +1,29 @@
 package com.marshall.customersubscriptionservice.web.util;
 
+import com.marshall.customersubscriptionservice.model.event.Match;
+import com.marshall.customersubscriptionservice.model.event.Player;
+import com.marshall.customersubscriptionservice.model.user.UserMatchLicence;
 import org.junit.jupiter.api.Test;
+
+import java.util.Date;
+
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 class MatchSummaryStringUtilTest {
 
+    private UserMatchLicence userMatchLicence;
+    private Match match;
+
+    public MatchSummaryStringUtilTest() {
+        Player playerA = new Player();
+        Player playerB = new Player();
+        match = new Match(1L, 1L, new Date(), playerA, playerB);
+        userMatchLicence = new UserMatchLicence(1L, 1L, match);
+    }
+
     @Test
-    public void buildAvBStringAcceptableParameters() {
-/*        Match match = new Match(12345L, 54321L, new DateTime(),1L, 2L);
-        String summaryType = "AvB";
-        String expected = "John McEnroe vs Andre Agassi";
-        String actual = MatchSummaryStringUtil.buildMatchSummary(match, summaryType);
-        assertEquals(expected, actual);*/
+    public void buildMatchSummaryIllegalArgumentTest() {
+        assertThrows(IllegalArgumentException.class, () ->
+        MatchSummaryStringUtil.buildMatchSummary(userMatchLicence, "illegal argument"));
     }
 }
