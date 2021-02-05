@@ -1,36 +1,39 @@
 package com.marshall.customersubscriptionservice.web.model;
 
 import com.marshall.customersubscriptionservice.model.event.Match;
-import org.joda.time.DateTime;
+import com.marshall.customersubscriptionservice.model.user.UserMatchLicence;
+
+import java.util.Date;
 
 public class UserMatchLicenceWrapper {
     private final Long matchId;
-    private final DateTime startDate;
-    private final String playerAName;
-    private final String playerBName;
+    private final Date startDate;
+    private final String playerA;
+    private final String playerB;
     private String summary;
 
-    public UserMatchLicenceWrapper(Match match) {
+    public UserMatchLicenceWrapper(UserMatchLicence userMatchLicence) {
+        Match match = userMatchLicence.getMatch();
         this.matchId = match.getMatchId();
         this.startDate = match.getStartDate();
-        this.playerAName = match.getPlayerA().getPlayerName();
-        this.playerBName = match.getPlayerB().getPlayerName();
+        this.playerA = match.getPlayerA().getPlayerName();
+        this.playerB = match.getPlayerB().getPlayerName();
     }
 
     public Long getMatchId() {
         return matchId;
     }
 
-    public DateTime getStartDate() {
+    public Date getStartDate() {
         return startDate;
     }
 
-    public String getPlayerAName() {
-        return playerAName;
+    public String getPlayerA() {
+        return playerA;
     }
 
-    public String getPlayerBName() {
-        return playerBName;
+    public String getPlayerB() {
+        return playerB;
     }
 
     public String getSummary() {
