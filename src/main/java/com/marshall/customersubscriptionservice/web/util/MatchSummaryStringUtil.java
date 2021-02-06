@@ -24,15 +24,14 @@ public class MatchSummaryStringUtil {
                 break;
             case WebConstants.SUMMARY_TYPE_A_v_B_TIME:
                 Date now = new Date();
+                Date startDate = match.getStartDate();
+                Long differenceInMinutes = TimeUtil.differenceInMinutes(now, startDate);
                 matchSummary = playerA.getPlayerName() + " vs " + playerB.getPlayerName() + ", ";
-                if (now.after(match.getStartDate())) {
-                    //TODO: calculate correct minutes ago
-                    int minutesAgo = 0;
-                    matchSummary = matchSummary + String.format(STARTED_IN_THE_PAST, minutesAgo);
+
+                if (now.after(startDate)) {
+                    matchSummary = matchSummary + String.format(STARTED_IN_THE_PAST, differenceInMinutes);
                 } else {
-                    //TODO: calculate correct minutes to go
-                    int minutesUntilStart = 1;
-                    matchSummary = matchSummary + String.format(STARTS_IN_THE_FUTURE, minutesUntilStart);
+                    matchSummary = matchSummary + String.format(STARTS_IN_THE_FUTURE, differenceInMinutes);
                 }
                 break;
             default:
