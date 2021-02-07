@@ -1,7 +1,7 @@
 version: '3.9'
 services:
   css-mysql:
-      image: pablogames/css-mysql
+      image: pablogames/css-mysql:firstimagepush
       ports:
         - 3307:3306
       networks:
