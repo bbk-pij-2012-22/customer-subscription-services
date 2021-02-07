@@ -19,7 +19,7 @@ services:
         css-mysql:
           condition: service_healthy
       environment:
-        DATABASE_HOST=css-mysql
+        - DATABASE_HOST=css-mysql
       networks:
         - css-network
 networks:
