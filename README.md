@@ -8,10 +8,10 @@ As requested, the application provides an endpoint for returning matches that a 
 
 You can run/test this project in several ways:
 
-**Docker Compose (recommended)**: download the root level docker compose yaml file, cd to the parent directory and simply run
+**Docker Compose (recommended)**: download the root level docker-compose.yaml file, cd to the parent directory and simply run
 `docker compose up`
 
-This will run the spring boot application in a container and a compatible, pre-populated mysql container that will both run on the same network and communicate with one another. You'll be able to hit the match licence endpoint either in your browser or using a tool like postman.
+This will run the spring boot application in a docker container and map its internal tomcat server to port 8080 on localhost. It will also launch a compatible, pre-populated mysql container that will run on the same network as the spring boot service and they will be able to communicate with one another. You'll be able to hit the match licence endpoint either in your browser or using a tool like postman (https://www.postman.com/). Example url:
 
 localhost:8080/api/user/licence/{userId}/matches?summaryType={summaryType}
 
@@ -26,6 +26,9 @@ Application DB:
 Test DB:
 `sudo docker container run --name mysqldbtest -p 3308:3306 -e MYSQL_ROOT_PASSWORD=root -e MYSQL_DATABASE=customer_subscription_test_db -d mysql:8`
 
+Another way to provide a mysql DB is to have a locally installed mysql server running. You will need to change the mysql host port in the application.properties file of the spring boot application (or test resource counterpart) to match the port that your mysql server is running on (defaults to 3306). You'll need to then create the db 'customer_subscription_db' (for application) or 'customer_subscription_test_db' (for test suite).
+
+However you have provisioned the mysql DB, you can then run the project by using the command `mvn spring-boot:run` from the project's root directory. This will launch spring boot and run its embedded tomcat server on port 8080. You'll be able to hit the match licence endpoint either in your browser or using a tool like postman (https://www.postman.com/).
 
 **AWS**:
 
@@ -33,60 +36,21 @@ Test DB:
 
 ### Prerequisites
 
-To run the application locally either via docker compose or by providing dockerised mysql instances, you will need Docker installed and running. Follow instructions here: https://www.docker.com/get-started
+**Docker Compose (recommended)** To run the application via docker compose, you will need the latest version of Docker installed and running. Follow instructions here: https://www.docker.com/get-started. This is all you need and is why it is the recommended approach.
 
+**Git clone** To fire up the dockerised mysql instances, you will need Docker installed and running. Follow instructions here: https://www.docker.com/get-started. To successfully run the command `mvn spring-boot:run`, you will need maven installed (http://maven.apache.org/install.html). 
 
 ## Running the tests
 
-Explain how to run the automated tests for this system
+1. Clone the project
+2. Provide a mysql DB 
 
-### Break down into end to end tests
-
-Explain what these tests test and why
-
-```
-Give an example
-```
-
-### And coding style tests
-
-Explain what these tests test and why
-
-```
-Give an example
-```
-
-## Deployment
-
-Add additional notes about how to deploy this on a live system
 
 ## Built With
 
-* [Dropwizard](http://www.dropwizard.io/1.0.2/docs/) - The web framework used
+* [Spring Boot](https://spring.io/projects/spring-boot) - Framework
 * [Maven](https://maven.apache.org/) - Dependency Management
-* [ROME](https://rometools.github.io/rome/) - Used to generate RSS Feeds
+* [MySQL](https://www.mysql.com/) - Database
+* [Docker](https://www.docker.com/) - Virtualisation 
 
-## Contributing
-
-Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) for details on our code of conduct, and the process for submitting pull requests to us.
-
-## Versioning
-
-We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags). 
-
-## Authors
-
-* **Billie Thompson** - *Initial work* - [PurpleBooth](https://github.com/PurpleBooth)
-
-See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
-
-## Acknowledgments
-
-* Hat tip to anyone whose code was used
-* Inspiration
-* etc
-
+## API contract
