@@ -26,10 +26,10 @@ public class CustomerLicenceResource {
         this.userLicenceService = userLicenceService;
     }
 
-    @GetMapping(path = "/{userId}/matches", produces = MediaType.APPLICATION_JSON_VALUE)
-    public List<UserMatchLicenceWrapper> getUserMatchLicences(@PathVariable("userId") Long userId,
+    @GetMapping(path = "/{customerId}/matches", produces = MediaType.APPLICATION_JSON_VALUE)
+    public List<UserMatchLicenceWrapper> getUserMatchLicences(@PathVariable("customerId") Long customerId,
                                                               @RequestParam(required = false) String summaryType) throws CustomerNotExistsException {
-            List<CustomerMatchLicence> licencedMatches = userLicenceService.getLicencedMatches(userId);
+            List<CustomerMatchLicence> licencedMatches = userLicenceService.getLicencedMatches(customerId);
             return buildResponse(licencedMatches, summaryType);
     }
 
