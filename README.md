@@ -45,7 +45,8 @@ However you have provisioned the mysql DB, you can then run the project by using
 ## Running the tests
 
 1. Clone the project
-2. Provide a mysql DB 
+2. Provide a blank mysql DB (see above)
+3. Run command `mvn clean install` from the project root directory
 
 
 ## Built With
