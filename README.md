@@ -26,7 +26,7 @@ Application DB:
 Test DB:
 `sudo docker container run --name mysqldbtest -p 3308:3306 -e MYSQL_ROOT_PASSWORD=root -e MYSQL_DATABASE=customer_subscription_test_db -d mysql:8`
 
-You'll then need to build the tables from the blank schema here https://gitlab.com/marshall_gj/customer-subscription-service/-/blob/master/src/db/customer_subscription_service.sql. You can insert your own data or you can use the example data script to insert some example data, found here: 
+You'll then need to build the tables from the blank schema here https://gitlab.com/marshall_gj/customer-subscription-service/-/blob/master/src/db/customer_subscription_service.sql. You can insert your own data or you can use the example data script to insert some example data, found here: https://gitlab.com/marshall_gj/customer-subscription-service/-/blob/master/src/db/example-data.sql
 
 Another way to provide a mysql DB is to have a locally installed mysql server running. You will need to change the mysql host port in the application.properties file of the spring boot application (or test resource counterpart) to match the port that your mysql server is running on (defaults to 3306). You'll need to then create the db 'customer_subscription_db' (for application) or 'customer_subscription_test_db' (for test suite).
 
