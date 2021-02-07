@@ -1,7 +1,7 @@
 version: '3.9'
 services:
   css-mysql:
-      image: pablogames/css-mysql:firstimagepush
+      image: pablogames/css-mysql:v1.1
       ports:
         - 3307:3306
       networks:
@@ -16,6 +16,8 @@ services:
       depends_on:
         css-mysql:
           condition: service_healthy
+      environment:
+        DATABASE_HOST=css-mysql
       networks:
         - css-network
 networks:
