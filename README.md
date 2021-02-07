@@ -1,4 +1,4 @@
-# Project Title
+# Customer Subscription Service
 
 This is a simple spring boot application that provides a solution to the coding test posed at https://hackmd.io/LAt6HwlQTH-RLJS4478Gqg?view.
 
