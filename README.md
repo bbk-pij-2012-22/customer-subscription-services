@@ -18,7 +18,7 @@ localhost:8080/api/user/licence/{userId}/matches?summaryType={summaryType}
 where summaryType can be either 'AvB' or 'AvBTime'
 
 
-**Git clone**: If you wish to clone the repository and run it locally, you will need to provide the application with a mysql db. The simplest way to provide one is to use the following Docker run commands. These database containers run on non-standard mysql ports so as to avoid any clash with existing instances:
+**Git clone**: If you wish to clone the repository and run it locally, you will need to provision a mysql database for the application. The simplest way to provide one is to use the following Docker run commands. These database containers run on non-standard mysql ports so as to avoid any clash with existing instances:
 
 Application DB:
 `sudo docker container run --name mysqldb -p 3307:3306 -e MYSQL_ROOT_PASSWORD=root -e MYSQL_DATABASE=customer_subscription_db -d mysql:8`
