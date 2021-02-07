@@ -6,7 +6,7 @@ As requested, the application provides an endpoint for returning matches that a 
 
 ## Getting Started
 
-You can run/test this project in several ways:
+You can run/test this project in several ways. If you choose the recommended approach, please use linux/macOS as this is entirely untested on Windows systems:
 
 **Docker Compose (recommended)**: download the root level docker-compose.yaml file (https://github.com/bbk-pij-2012-22/customer-subscription-services/blob/master/docker-compose.yml), cd to the parent directory and simply run
 `docker compose up`
