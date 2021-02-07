@@ -2,7 +2,7 @@ package com.marshall.customersubscriptionservice.web.util;
 
 import com.marshall.customersubscriptionservice.model.event.Match;
 import com.marshall.customersubscriptionservice.model.event.Player;
-import com.marshall.customersubscriptionservice.model.user.UserMatchLicence;
+import com.marshall.customersubscriptionservice.model.customer.CustomerMatchLicence;
 import com.marshall.customersubscriptionservice.web.constants.WebConstants;
 
 import java.util.Date;
@@ -12,9 +12,9 @@ public class MatchSummaryStringUtil {
     private static final String STARTED_IN_THE_PAST = "started %d minutes ago";
     private static final String STARTS_IN_THE_FUTURE = "starts in %d minutes";
 
-    public static String buildMatchSummary(UserMatchLicence userMatchLicence, String summaryType) {
+    public static String buildMatchSummary(CustomerMatchLicence customerMatchLicence, String summaryType) {
         String matchSummary;
-        Match match = userMatchLicence.getMatch();
+        Match match = customerMatchLicence.getMatch();
         Player playerA = match.getPlayerA();
         Player playerB = match.getPlayerB();
 

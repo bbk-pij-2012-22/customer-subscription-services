@@ -1,6 +1,6 @@
 package com.marshall.customersubscriptionservice.web.exception.handling;
 
-import com.marshall.customersubscriptionservice.exception.UserNotExistsException;
+import com.marshall.customersubscriptionservice.exception.CustomerNotExistsException;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -11,8 +11,8 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExcep
 @ControllerAdvice
 public class ExceptionHandler extends ResponseEntityExceptionHandler {
 
-    @org.springframework.web.bind.annotation.ExceptionHandler(value = UserNotExistsException.class)
-    protected ResponseEntity<Object> handleException(UserNotExistsException e, WebRequest request) {
+    @org.springframework.web.bind.annotation.ExceptionHandler(value = CustomerNotExistsException.class)
+    protected ResponseEntity<Object> handleException(CustomerNotExistsException e, WebRequest request) {
         String responseBody = e.getMessage();
         return handleExceptionInternal(e, responseBody, new HttpHeaders(), HttpStatus.NOT_FOUND, request);
     }

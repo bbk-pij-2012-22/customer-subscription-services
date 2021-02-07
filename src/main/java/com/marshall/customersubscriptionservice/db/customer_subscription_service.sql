@@ -28,30 +28,30 @@ CREATE TABLE `match_event`(
     CONSTRAINT `MEFK3` FOREIGN KEY (`player_b_id`) REFERENCES `player` (`player_id`)
 ) ENGINE = InnoDB;
 
-DROP TABLE IF EXISTS `user`;
-CREATE TABLE `user`(
-    user_id BIGINT(20) UNSIGNED NOT NULL,
-    username VARCHAR(200) NOT NULL,
-    PRIMARY KEY (`user_id`)
+DROP TABLE IF EXISTS `customer`;
+CREATE TABLE `customer`(
+    customer_id BIGINT(20) UNSIGNED NOT NULL,
+    customer_name VARCHAR(200) NOT NULL,
+    PRIMARY KEY (`customer_id`)
 ) ENGINE = InnoDB;
 
-DROP TABLE IF EXISTS `user_match_licence`;
-CREATE TABLE `user_match_licence`(
-    user_match_licence_id BIGINT(20) UNSIGNED NOT NULL,
-    user_id BIGINT(20) UNSIGNED NOT NULL,
+DROP TABLE IF EXISTS `customer_match_licence`;
+CREATE TABLE `customer_match_licence`(
+    customer_match_licence_id BIGINT(20) UNSIGNED NOT NULL,
+    customer_id BIGINT(20) UNSIGNED NOT NULL,
     match_id BIGINT(20) UNSIGNED NOT NULL,
-    PRIMARY KEY (`user_match_licence_id`),
-    CONSTRAINT `UMLFK1` FOREIGN KEY (`user_id`) REFERENCES `user` (`user_id`),
+    PRIMARY KEY (`customer_match_licence_id`),
+    CONSTRAINT `UMLFK1` FOREIGN KEY (`customer_id`) REFERENCES `customer` (`customer_id`),
     CONSTRAINT `UMLFK2` FOREIGN KEY (`match_id`) REFERENCES `match_event` (`match_id`)
 ) ENGINE = InnoDB;
 
-DROP TABLE IF EXISTS `user_tournament_licence`;
-CREATE TABLE `user_tournament_licence`(
-    user_tournament_licence_id BIGINT(20) UNSIGNED NOT NULL,
-    user_id BIGINT(20) UNSIGNED NOT NULL,
+DROP TABLE IF EXISTS `customer_tournament_licence`;
+CREATE TABLE `customer_tournament_licence`(
+    customer_tournament_licence_id BIGINT(20) UNSIGNED NOT NULL,
+    customer_id BIGINT(20) UNSIGNED NOT NULL,
     tournament_id BIGINT(20) UNSIGNED NOT NULL,
-    PRIMARY KEY (`user_tournament_licence_id`),
-    CONSTRAINT `UTLFK1` FOREIGN KEY (`user_id`) REFERENCES `user` (`user_id`),
+    PRIMARY KEY (`customer_tournament_licence_id`),
+    CONSTRAINT `UTLFK1` FOREIGN KEY (`customer_id`) REFERENCES `customer` (`customer_id`),
     CONSTRAINT `UTLFK2` FOREIGN KEY (`tournament_id`) REFERENCES `tournament` (`tournament_id`)
 ) ENGINE = InnoDB;
 

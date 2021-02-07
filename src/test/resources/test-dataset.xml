@@ -7,7 +7,7 @@
     <player player_id="1" player_name="A. Agassi"/>
     <player player_id="2" player_name="J. McEnroe"/>
     <match_event match_id="1" tournament_id="1" start_date="2021-02-08" player_a_id="1" player_b_id="2"/>
-    <user user_id="1" username="Bet365"/>
-    <user_match_licence user_match_licence_id="1" user_id="1" match_id="1"/>
+    <customer customer_id="1" customername="Bet365"/>
+    <customer_match_licence customer_match_licence_id="1" customer_id="1" match_id="1"/>
 
 </dataset>

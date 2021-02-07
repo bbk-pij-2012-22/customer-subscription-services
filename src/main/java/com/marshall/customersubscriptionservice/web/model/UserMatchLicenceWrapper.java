@@ -1,7 +1,7 @@
 package com.marshall.customersubscriptionservice.web.model;
 
 import com.marshall.customersubscriptionservice.model.event.Match;
-import com.marshall.customersubscriptionservice.model.user.UserMatchLicence;
+import com.marshall.customersubscriptionservice.model.customer.CustomerMatchLicence;
 
 import java.util.Date;
 
@@ -12,8 +12,8 @@ public class UserMatchLicenceWrapper {
     private final String playerB;
     private String summary;
 
-    public UserMatchLicenceWrapper(UserMatchLicence userMatchLicence) {
-        Match match = userMatchLicence.getMatch();
+    public UserMatchLicenceWrapper(CustomerMatchLicence customerMatchLicence) {
+        Match match = customerMatchLicence.getMatch();
         this.matchId = match.getMatchId();
         this.startDate = match.getStartDate();
         this.playerA = match.getPlayerA().getPlayerName();

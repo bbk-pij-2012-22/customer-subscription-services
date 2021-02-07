@@ -1,8 +1,8 @@
 package com.marshall.customersubscriptionservice.web.api;
 
-import com.marshall.customersubscriptionservice.exception.UserNotExistsException;
-import com.marshall.customersubscriptionservice.model.user.UserMatchLicence;
-import com.marshall.customersubscriptionservice.service.IUserLicenceService;
+import com.marshall.customersubscriptionservice.exception.CustomerNotExistsException;
+import com.marshall.customersubscriptionservice.model.customer.CustomerMatchLicence;
+import com.marshall.customersubscriptionservice.service.ICustomerLicenceService;
 import com.marshall.customersubscriptionservice.web.util.MatchSummaryStringUtil;
 import com.marshall.customersubscriptionservice.web.model.UserMatchLicenceWrapper;
 import org.springframework.http.MediaType;
@@ -18,29 +18,29 @@ import java.util.List;
 
 @RestController
 @RequestMapping(path = "/api/user/licence")
-public class UserLicenceResource {
+public class CustomerLicenceResource {
 
-    private final IUserLicenceService userLicenceService;
+    private final ICustomerLicenceService userLicenceService;
 
-    public UserLicenceResource(IUserLicenceService userLicenceService) {
+    public CustomerLicenceResource(ICustomerLicenceService userLicenceService) {
         this.userLicenceService = userLicenceService;
     }
 
     @GetMapping(path = "/{userId}/matches", produces = MediaType.APPLICATION_JSON_VALUE)
     public List<UserMatchLicenceWrapper> getUserMatchLicences(@PathVariable("userId") Long userId,
-                                                              @RequestParam(required = false) String summaryType) throws UserNotExistsException {
-            List<UserMatchLicence> licencedMatches = userLicenceService.getLicencedMatches(userId);
+                                                              @RequestParam(required = false) String summaryType) throws CustomerNotExistsException {
+            List<CustomerMatchLicence> licencedMatches = userLicenceService.getLicencedMatches(userId);
             return buildResponse(licencedMatches, summaryType);
     }
 
-    private List<UserMatchLicenceWrapper> buildResponse(List<UserMatchLicence> licencedMatches, String summaryType) {
+    private List<UserMatchLicenceWrapper> buildResponse(List<CustomerMatchLicence> licencedMatches, String summaryType) {
 
         List<UserMatchLicenceWrapper> response = new ArrayList<>();
-        for (UserMatchLicence userMatchLicence : licencedMatches) {
-            UserMatchLicenceWrapper userLicenceWrapper = new UserMatchLicenceWrapper(userMatchLicence);
+        for (CustomerMatchLicence customerMatchLicence : licencedMatches) {
+            UserMatchLicenceWrapper userLicenceWrapper = new UserMatchLicenceWrapper(customerMatchLicence);
 
             if (summaryType != null) {
-               userLicenceWrapper.setSummary(MatchSummaryStringUtil.buildMatchSummary(userMatchLicence, summaryType));
+               userLicenceWrapper.setSummary(MatchSummaryStringUtil.buildMatchSummary(customerMatchLicence, summaryType));
             }
 
             response.add(userLicenceWrapper);
