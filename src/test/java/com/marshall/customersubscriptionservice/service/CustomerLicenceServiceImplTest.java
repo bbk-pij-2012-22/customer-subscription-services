@@ -56,7 +56,7 @@ class CustomerLicenceServiceImplTest extends IntegrationTest {
         Exception expectedException = assertThrows(CustomerNotExistsException.class,
                 () -> userLicenceService.getLicencedMatches(11L));
 
-        String expectedErrorMessage = "User ID 11 does not exist.";
+        String expectedErrorMessage = "Customer ID 11 does not exist.";
         String actualErrorMessage = expectedException.getMessage();
         assertEquals(expectedErrorMessage, actualErrorMessage);
     }
