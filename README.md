@@ -8,7 +8,7 @@ As requested, the application provides an endpoint for returning matches that a 
 
 You can run/test this project in several ways:
 
-**Docker Compose (recommended)**: download the root level docker-compose.yaml file (https://gitlab.com/marshall_gj/customer-subscription-service/-/blob/master/docker-compose.yml), cd to the parent directory and simply run
+**Docker Compose (recommended)**: download the root level docker-compose.yaml file (https://github.com/bbk-pij-2012-22/customer-subscription-services/blob/master/docker-compose.yml), cd to the parent directory and simply run
 `docker compose up`
 
 This will download the bespoke images for the application and DB. It will then launch a containerised mysql 8 instance and wait for it to be responsive to connections, at which point it will run the spring boot application in a docker container and map its internal tomcat server to port 8080 on localhost. The two services will be running on the same network and they will be able to communicate with one another. As it is pre-populated, there's no need to create the schema or insert any data to be able to begin returning results from the api. As soon as the command has has completed successfully, you'll be able to hit the match licence endpoint either in your browser or using a tool like postman (https://www.postman.com/). See API contract below for more details on how to hit the service.
@@ -24,7 +24,7 @@ Test DB:
 
 When launching the live application, it will auto-create the tables and insert some example data for you to query.
 
-To be able to run the tests, you will need to access the DB container's bash, log into mysql, and paste the DB schema sql script, located here: https://gitlab.com/marshall_gj/customer-subscription-service/-/blob/master/src/main/resources/schema.sql. Of course, it's much easier to just use the docker compose option.
+To be able to run the tests, you will need to access the DB container's bash, log into mysql, and paste the DB schema sql script, located here: https://github.com/bbk-pij-2012-22/customer-subscription-services/blob/master/src/main/resources/schema.sql. Of course, it's much easier to just use the docker compose option.
 
 Another way to provide a mysql DB is to have a locally installed mysql server running. You will need to change the mysql host port in the application.properties file of the spring boot application (or test resource counterpart) to match the port that your mysql server is running on (defaults to 3306). You'll need to then create the db 'customer_subscription_db' (for application) or 'customer_subscription_test_db' (for test suite) and use the schema.sql to build the tables.
 
