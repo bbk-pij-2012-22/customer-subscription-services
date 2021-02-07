@@ -1,6 +1,6 @@
 # Customer Subscription Service
 
-This is a simple spring boot application that provides a solution to the coding test posed at https://hackmd.io/LAt6HwlQTH-RLJS4478Gqg?view.
+This is a spring boot application that provides a solution to the coding test posed at https://hackmd.io/LAt6HwlQTH-RLJS4478Gqg?view.
 
 As requested, the application provides an endpoint for returning matches that a customer has purchased a license to be able to access with an optional summary parameter. It does not provide endpoints and services that would naturally coexist, e.g. customer creation, match creation, logic behind purchasing a tournament etc. simply because it's not a requirement of the spec. However, some relations mentioned in the spec are in place in a very basic format, e.g. tournament or customer_tournament_licence that are not actually used.
 
