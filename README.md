@@ -11,7 +11,7 @@ You can run/test this project in several ways:
 **Docker Compose (recommended)**: download the root level docker-compose.yaml file, cd to the parent directory and simply run
 `docker compose up`
 
-This will run the spring boot application in a docker container and map its internal tomcat server to port 8080 on localhost. It will also launch a compatible, pre-populated mysql container that will run on the same network as the spring boot service and they will be able to communicate with one another. You'll be able to hit the match licence endpoint either in your browser or using a tool like postman (https://www.postman.com/). Example url:
+This will run the spring boot application in a docker container and map its internal tomcat server to port 8080 on localhost. It will also launch a compatible, pre-populated mysql container that will run on the same network as the spring boot service and they will be able to communicate with one another. As soon as the command has has completed successfully, you'll be able to hit the match licence endpoint either in your browser or using a tool like postman (https://www.postman.com/). Example url:
 
 localhost:8080/api/user/licence/{userId}/matches?summaryType={summaryType}
 
