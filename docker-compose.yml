@@ -13,6 +13,8 @@ services:
 
   css-app:
       image: pablogames/customer-subscription-service
+      ports:
+        - 8080:8080
       depends_on:
         css-mysql:
           condition: service_healthy
