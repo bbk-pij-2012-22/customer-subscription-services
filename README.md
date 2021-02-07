@@ -39,7 +39,7 @@ However you have provisioned the mysql DB, you can then run the project by using
 
 **Docker Compose (recommended)** To run the application via docker compose, you will need the latest version of Docker desktopinstalled and running. Follow instructions here: https://www.docker.com/get-started. This is all you need and is why it is the recommended approach.
 
-**Git clone** To fire up the dockerised mysql instances, you will need Docker installed and running. Follow instructions here: https://www.docker.com/get-started. To successfully run the command `mvn spring-boot:run`, you will need maven installed (http://maven.apache.org/install.html). 
+**Git clone** To fire up the dockerised mysql instances, you will need Docker installed and running. Follow instructions here: https://www.docker.com/get-started. To successfully run the command `mvn spring-boot:run`, you will need maven installed (http://maven.apache.org/install.html). Note again that the main application expects the DB to be available on port 3307 and that the tests expect the DB to be available on port 3308.
 
 ## Running the tests
 
