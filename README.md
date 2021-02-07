@@ -77,7 +77,7 @@ Example request:
 
 Example response:
 
-
+```json
 [
    {
       "matchId":1,
@@ -94,6 +94,7 @@ Example response:
       "summary":"S.Querrey vs L.Sonego, starts in 2694 minutes"
    }
 ]
+```
 
 
 ## Example Data
