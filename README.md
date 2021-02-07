@@ -8,7 +8,7 @@ As requested, the application provides an endpoint for returning matches that a 
 
 You can run/test this project in several ways:
 
-**Reommended**: Docker: download the root level docker compose yaml file, cd to the parent directory and simply run
+**Docker Compose (recommended)**: download the root level docker compose yaml file, cd to the parent directory and simply run
 `docker compose up`
 
 This will run the spring boot application in a container and a compatible, pre-populated mysql container that will both run on the same network and communicate with one another. You'll be able to hit the match licence endpoint either in your browser or using a tool like postman.
@@ -17,7 +17,8 @@ localhost:8080/api/user/licence/{userId}/matches?summaryType={summaryType}
 
 where summaryType can be either 'AvB' or 'AvBTime'
 
-Locally: If you wish to clone the repository and run it locally, you will need to provide the application with a mysql db. The simplest way to provide one is to use the following Docker run commands. These database containers run on non-standard mysql ports so as to avoid any clash with existing instances:
+
+**Git clone**: If you wish to clone the repository and run it locally, you will need to provide the application with a mysql db. The simplest way to provide one is to use the following Docker run commands. These database containers run on non-standard mysql ports so as to avoid any clash with existing instances:
 
 Application DB:
 `sudo docker container run --name mysqldb -p 3307:3306 -e MYSQL_ROOT_PASSWORD=root -e MYSQL_DATABASE=customer_subscription_db -d mysql:8`
@@ -25,7 +26,10 @@ Application DB:
 Test DB:
 `sudo docker container run --name mysqldbtest -p 3308:3306 -e MYSQL_ROOT_PASSWORD=root -e MYSQL_DATABASE=customer_subscription_test_db -d mysql:8`
 
-AWS:
+
+**AWS**:
+
+
 
 ### Prerequisites
 
