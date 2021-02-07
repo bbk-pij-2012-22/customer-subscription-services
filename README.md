@@ -61,17 +61,22 @@ However you have provisioned the mysql DB, you can then run the project by using
 **Get Match Licences**
 
 Rest method: GET
+
 uri: /api/user/licence/{customerId}/matches?summaryType={summaryType}
+
 parameters:
+
   **customerId** (path parameter): the unique id of the customer whose results we are seeking
   **summaryType** (query parameter): optional. Accepted values: 'AvB' will return player A vs player B. 'AvBTime will return player A vs player B with the minute from or until the start of the match in question.
 
 Example request:
 
+
 {baseUrl}:8080/api/user/licence/{userId}/matches?summaryType={summaryType}
 
 
 Example response:
+
 
 [
    {
