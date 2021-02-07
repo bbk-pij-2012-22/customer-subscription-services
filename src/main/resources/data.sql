@@ -20,3 +20,5 @@ INSERT INTO `customer`(`customer_id`, `customer_name`) VALUES (2, 'SkySports');
 INSERT INTO `customer_match_licence`(`customer_match_licence_id`, `customer_id`, `match_id`) VALUES (1, 1, 1);
 
 INSERT INTO `customer_match_licence`(`customer_match_licence_id`, `customer_id`, `match_id`) VALUES (2, 1, 2);
+
+INSERT INTO `customer_match_licence`(`customer_match_licence_id`, `customer_id`, `match_id`) VALUES (2, 1, 1);
