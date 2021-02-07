@@ -7,7 +7,7 @@ version: "3.9"
       - css-network
 
 emilio:
-    image: css/customer-subscription-service
+    image: pablogames/customer-subscription-service
     depends_on:
       - css-mysql
     environment:
