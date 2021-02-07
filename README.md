@@ -57,4 +57,40 @@ However you have provisioned the mysql DB, you can then run the project by using
 
 ## API contract
 
-## Data examples e.g. user id, matches
+
+**Get Match Licences**
+
+Rest method: GET
+uri: /api/user/licence/{customerId}/matches?summaryType={summaryType}
+parameters:
+  **customerId** (path parameter): the unique id of the customer whose results we are seeking
+  **summaryType** (query parameter): optional. Accepted values: 'AvB' will return player A vs player B. 'AvBTime will return player A vs player B with the minute from or until the start of the match in question.
+
+Example request:
+
+{baseUrl}:8080/api/user/licence/{userId}/matches?summaryType={summaryType}
+
+
+Example response:
+
+[
+   {
+      "matchId":1,
+      "startDate":"2021-02-08T14:00:00.000+00:00",
+      "playerA":"K.Anderson",
+      "playerB":"M.Berrettini",
+      "summary":"K.Anderson vs M.Berrettini, starts in 1104 minutes"
+   },
+   {
+      "matchId":2,
+      "startDate":"2021-02-09T16:30:00.000+00:00",
+      "playerA":"S.Querrey",
+      "playerB":"L.Sonego",
+      "summary":"S.Querrey vs L.Sonego, starts in 2694 minutes"
+   }
+]
+
+
+## Example Data
+
+Example data includes customers with ids 1 + 2. Any other customer IDs will return an error message that the user ID does not exist as they are not in the example data.
