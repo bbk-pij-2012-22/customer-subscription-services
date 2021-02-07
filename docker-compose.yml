@@ -6,11 +6,16 @@ services:
         - 3307:3306
       networks:
         - css-network
+      healthcheck:
+        test: ["CMD", "mysqladmin" ,"ping", "-h", "localhost"]
+        timeout: 20s
+        retries: 10
 
   css-app:
       image: pablogames/customer-subscription-service
       depends_on:
-        - css-mysql
+        css-mysql:
+          condition: service_healthy
       networks:
         - css-network
 networks:
