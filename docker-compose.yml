@@ -11,10 +11,9 @@ services:
       image: pablogames/customer-subscription-service
       depends_on:
         - css-mysql
-      environment:
       networks:
         - css-network
-  networks:
+networks:
       css-network:
           driver: bridge
 
