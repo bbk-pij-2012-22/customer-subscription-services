@@ -11,20 +11,22 @@ You can run/test this project in several ways:
 **Docker Compose (recommended)**: download the root level docker-compose.yaml file, cd to the parent directory and simply run
 `docker compose up`
 
-This will run the spring boot application in a docker container and map its internal tomcat server to port 8080 on localhost. It will also launch a compatible, pre-populated mysql container that will run on the same network as the spring boot service and they will be able to communicate with one another. As soon as the command has has completed successfully, you'll be able to hit the match licence endpoint either in your browser or using a tool like postman (https://www.postman.com/). Example url:
+This will run the spring boot application in a docker container and map its internal tomcat server to port 8080 on localhost. It will also launch a compatible, pre-populated mysql database in another docker container that will run on the same network as the spring boot service and they will be able to communicate with one another. As it is pre-populated, there's no need to create the schema or insert any data to be able to begin returning results from the api. As soon as the command has has completed successfully, you'll be able to hit the match licence endpoint either in your browser or using a tool like postman (https://www.postman.com/). Example url:
 
 localhost:8080/api/user/licence/{userId}/matches?summaryType={summaryType}
 
 where summaryType can be either 'AvB' or 'AvBTime'
 
 
-**Git clone**: If you wish to clone the repository and run it locally, you will need to provision a mysql database for the application. The simplest way to provide one is to use the following Docker run commands. These database containers run on non-standard mysql ports so as to avoid any clash with existing instances:
+**Git clone**: If you wish to clone the repository and run it manually, you will need to provision a mysql database for the application. The simplest way to provide one is to use the following Docker run commands. These database containers run on non-standard mysql ports so as to avoid any clash with existing mysql instances:
 
 Application DB:
 `sudo docker container run --name mysqldb -p 3307:3306 -e MYSQL_ROOT_PASSWORD=root -e MYSQL_DATABASE=customer_subscription_db -d mysql:8`
 
 Test DB:
 `sudo docker container run --name mysqldbtest -p 3308:3306 -e MYSQL_ROOT_PASSWORD=root -e MYSQL_DATABASE=customer_subscription_test_db -d mysql:8`
+
+You'll then need to build the tables from the blank schema here https://gitlab.com/marshall_gj/customer-subscription-service/-/blob/master/src/db/customer_subscription_service.sql. You can insert your own data or you can use the example data script to insert some example data, found here: 
 
 Another way to provide a mysql DB is to have a locally installed mysql server running. You will need to change the mysql host port in the application.properties file of the spring boot application (or test resource counterpart) to match the port that your mysql server is running on (defaults to 3306). You'll need to then create the db 'customer_subscription_db' (for application) or 'customer_subscription_test_db' (for test suite).
 
@@ -54,3 +56,5 @@ However you have provisioned the mysql DB, you can then run the project by using
 * [Docker](https://www.docker.com/) - Virtualisation 
 
 ## API contract
+
+## Data examples e.g. user id, matches
