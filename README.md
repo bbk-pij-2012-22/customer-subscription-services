@@ -69,7 +69,7 @@ parameters:
 Example request:
 
 
-{baseUrl}:8080/api/user/licence/{userId}/matches?summaryType={summaryType}
+{baseUrl}:8080/api/user/licence/{customerId}/matches?summaryType={summaryType}
 
 
 Example response:
