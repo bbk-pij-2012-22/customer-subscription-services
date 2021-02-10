@@ -12,23 +12,23 @@ import java.util.List;
 @Service
 public class CustomerLicenceServiceImpl implements ICustomerLicenceService {
 
-    private final ICustomerMatchLicenceRepository userMatchLicenceRepository;
-    private final ICustomerRepository userRepository;
+    private final ICustomerMatchLicenceRepository customerMatchLicenceRepository;
+    private final ICustomerRepository customerRepository;
 
     public CustomerLicenceServiceImpl(ICustomerMatchLicenceRepository customerMatchLicenceRepository,
                                       ICustomerRepository customerRepository) {
-        this.userMatchLicenceRepository = customerMatchLicenceRepository;
-        this.userRepository = customerRepository;
+        this.customerMatchLicenceRepository = customerMatchLicenceRepository;
+        this.customerRepository = customerRepository;
     }
 
     @Override
     public List<CustomerMatchLicence> getLicencedMatches(Long customerId) throws CustomerNotExistsException {
-        validateUserId(customerId);
-        return userMatchLicenceRepository.findByCustomerId(customerId);
+        validateCustomerId(customerId);
+        return customerMatchLicenceRepository.findByCustomerId(customerId);
     }
 
-    private void validateUserId(Long customerId) throws CustomerNotExistsException {
-        Customer customer = userRepository.findByCustomerId(customerId);
+    private void validateCustomerId(Long customerId) throws CustomerNotExistsException {
+        Customer customer = customerRepository.findByCustomerId(customerId);
         if (customer == null) {
             throw new CustomerNotExistsException("Customer ID " + customerId + " does not exist.");
         }
