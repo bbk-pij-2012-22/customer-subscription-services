@@ -70,7 +70,7 @@ parameters:
 Example request:
 
 
-{baseUrl}:8080/api/user/licence/{customerId}/matches?summaryType={summaryType}
+{baseUrl}:8080/api/user/licence/1/matches?summaryType=AvBTime
 
 
 Example response:
