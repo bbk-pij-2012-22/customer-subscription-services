@@ -24,7 +24,7 @@ Test DB:
 
 When launching the live application, it will auto-create the tables and insert some example data for you to query.
 
-To be able to run the tests, you will need to access the DB container's bash, log into mysql, and paste the DB schema sql script, located here: https://github.com/bbk-pij-2012-22/customer-subscription-services/blob/master/src/main/resources/schema.sql. Of course, it's much easier to just use the 
+To be able to run the tests, you will need to access the DB container's bash, log into mysql, and paste the DB schema sql script, located here: https://github.com/gregjmarshall/customer-subscription-services/blob/master/src/main/resources/schema.sql. Of course, it's much easier to just use the 
 pose option.
 
 Another way to provide a mysql DB is to have a locally installed mysql server running. You will need to change the mysql host port in the application.properties file of the spring boot application (or test resource counterpart) to match the port that your mysql server is running on (defaults to 3306). You'll need to then create the db 'customer_subscription_db' (for application) or 'customer_subscription_test_db' (for test suite) and use the schema.sql to build the tables.
