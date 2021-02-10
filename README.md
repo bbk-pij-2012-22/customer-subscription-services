@@ -64,6 +64,7 @@ uri: /api/user/licence/{customerId}/matches?summaryType={summaryType}
 parameters:
 
   **customerId** (path parameter): the unique id of the customer whose results we are seeking
+  
   **summaryType** (query parameter): optional. Accepted values: 'AvB' will return player A vs player B. 'AvBTime will return player A vs player B with the minute from or until the start of the match in question. Any incorrect summaryType parameters will return an error message.
 
 Example request:
