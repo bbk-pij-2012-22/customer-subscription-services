@@ -8,7 +8,7 @@ As requested, the application provides an endpoint for returning matches that a 
 
 You can run/test this project in several ways. If you choose the recommended approach, please use linux/macOS as this is entirely untested on Windows systems:
 
-**Docker Compose (recommended)**: download the root level docker-compose.yaml file (https://github.com/bbk-pij-2012-22/customer-subscription-services/blob/master/docker-compose.yml), cd to the parent directory and simply run
+**Docker Compose (recommended)**: download the root level docker-compose.yaml file (https://github.com/gregjmarshall/customer-subscription-services/blob/master/docker-compose.yml), cd to the parent directory and simply run
 `docker-compose up`
 
 This will download the bespoke images for the application and DB. It will then launch a containerised mysql 8 instance and wait for it to be responsive to connections, at which point it will run the spring boot application in a docker container and map its internal tomcat server to port 8080 on localhost. The two services will be running on the same network and they will be able to communicate with one another. As it is pre-populated, there's no need to create the schema or insert any data to be able to begin returning results from the api. As soon as the command has has completed successfully, you'll be able to hit the match licence endpoint either in your browser or using a tool like postman (https://www.postman.com/). See API contract below for more details on how to hit the service. Note: if the container has problems on the first run, please run docker-compose up again.
